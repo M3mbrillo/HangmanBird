@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HangmanBirdModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Deletreo_Palabras">
+    <Key>
+      <PropertyRef Name="Codigo_Palabra" />
+      <PropertyRef Name="Letra" />
+      <PropertyRef Name="Posicion" />
+    </Key>
+    <Property Name="Codigo_Palabra" Type="Int32" Nullable="false" />
+    <Property Name="Letra" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Posicion" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Palabras" Relationship="Self.FK__Composici__Codig__5FB337D6" FromRole="Deletreo_Palabras" ToRole="Palabras" />
+  </EntityType>
+  <EntityType Name="Palabras">
+    <Key>
+      <PropertyRef Name="Codigo_Palabra" />
+    </Key>
+    <Property Name="Codigo_Palabra" Type="Int32" Nullable="false" />
+    <Property Name="Palabra" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Cantidad_Letras" Type="Int32" />
+    <Property Name="Indice_uso" Type="Double" />
+    <Property Name="Palabra_Raiz" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Palabra_Limpia" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Deletreo_Palabras" Relationship="Self.FK__Composici__Codig__5FB337D6" FromRole="Palabras" ToRole="Deletreo_Palabras" />
+    <NavigationProperty Name="Repeticion_Letras" Relationship="Self.FK__Repeticio__Codig__628FA481" FromRole="Palabras" ToRole="Repeticion_Letras" />
+  </EntityType>
+  <EntityType Name="Repeticion_Letras">
+    <Key>
+      <PropertyRef Name="Codigo_Palabra" />
+      <PropertyRef Name="Letra" />
+      <PropertyRef Name="Repeticiones" />
+    </Key>
+    <Property Name="Codigo_Palabra" Type="Int32" Nullable="false" />
+    <Property Name="Letra" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Repeticiones" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Palabras" Relationship="Self.FK__Repeticio__Codig__628FA481" FromRole="Repeticion_Letras" ToRole="Palabras" />
+  </EntityType>
+  <Association Name="FK__Composici__Codig__5FB337D6">
+    <End Role="Palabras" Type="Self.Palabras" Multiplicity="1" />
+    <End Role="Deletreo_Palabras" Type="Self.Deletreo_Palabras" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Palabras">
+        <PropertyRef Name="Codigo_Palabra" />
+      </Principal>
+      <Dependent Role="Deletreo_Palabras">
+        <PropertyRef Name="Codigo_Palabra" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Repeticio__Codig__628FA481">
+    <End Role="Palabras" Type="Self.Palabras" Multiplicity="1" />
+    <End Role="Repeticion_Letras" Type="Self.Repeticion_Letras" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Palabras">
+        <PropertyRef Name="Codigo_Palabra" />
+      </Principal>
+      <Dependent Role="Repeticion_Letras">
+        <PropertyRef Name="Codigo_Palabra" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HangmanBirdEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Deletreo_Palabras" EntityType="Self.Deletreo_Palabras" />
+    <EntitySet Name="Palabras" EntityType="Self.Palabras" />
+    <EntitySet Name="Repeticion_Letras" EntityType="Self.Repeticion_Letras" />
+    <AssociationSet Name="FK__Composici__Codig__5FB337D6" Association="Self.FK__Composici__Codig__5FB337D6">
+      <End Role="Palabras" EntitySet="Palabras" />
+      <End Role="Deletreo_Palabras" EntitySet="Deletreo_Palabras" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Repeticio__Codig__628FA481" Association="Self.FK__Repeticio__Codig__628FA481">
+      <End Role="Palabras" EntitySet="Palabras" />
+      <End Role="Repeticion_Letras" EntitySet="Repeticion_Letras" />
+    </AssociationSet>
+    <FunctionImport Name="sp_ObtenerLetrasPredilectas" ReturnType="Collection(HangmanBirdModel.sp_ObtenerLetrasPredilectas_result)">
+      <Parameter Name="Palabra" Mode="In" Type="String" />
+      <Parameter Name="Letras" Mode="In" Type="String" />
+      <Parameter Name="CantidadLetras" Mode="In" Type="Int32" />
+      <Parameter Name="Tolerancia" Mode="In" Type="Double" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="sp_ObtenerLetrasPredilectas_result">
+    <Property Type="String" Name="Letra" Nullable="false" />
+    <Property Type="Int32" Name="CantidadUsada" Nullable="false" />
+  </ComplexType>
+</Schema>

@@ -1,0 +1,13 @@
+c:\users\facundo\documents\visual studio 2015\Projects\HangmanBird\HangmanBird\bin\Debug\HangmanBird.exe.config
+C:\Users\Facundo\Documents\Visual Studio 2015\Projects\HangmanBird\HangmanBird\bin\Debug\HangmanBird.exe
+C:\Users\Facundo\Documents\Visual Studio 2015\Projects\HangmanBird\HangmanBird\bin\Debug\HangmanBird.pdb
+C:\Users\Facundo\Documents\Visual Studio 2015\Projects\HangmanBird\HangmanBird\bin\Debug\EntityFramework.dll
+C:\Users\Facundo\Documents\Visual Studio 2015\Projects\HangmanBird\HangmanBird\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Facundo\Documents\Visual Studio 2015\Projects\HangmanBird\HangmanBird\bin\Debug\EntityFramework.xml
+C:\Users\Facundo\Documents\Visual Studio 2015\Projects\HangmanBird\HangmanBird\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Facundo\Documents\Visual Studio 2015\Projects\HangmanBird\HangmanBird\obj\Debug\HangmanBird.csprojResolveAssemblyReference.cache
+C:\Users\Facundo\Documents\Visual Studio 2015\Projects\HangmanBird\HangmanBird\obj\Debug\HangmanBird.exe
+C:\Users\Facundo\Documents\Visual Studio 2015\Projects\HangmanBird\HangmanBird\obj\Debug\HangmanBird.pdb
+G:\Datos\BackUp Olivetti\Visual Studio 2015\Projects\HangmanBird\HangmanBird\bin\Debug\HangmanBird.exe.config
+G:\Datos\BackUp Olivetti\Visual Studio 2015\Projects\HangmanBird\HangmanBird\obj\Debug\HangmanBird.exe
+G:\Datos\BackUp Olivetti\Visual Studio 2015\Projects\HangmanBird\HangmanBird\obj\Debug\HangmanBird.pdb

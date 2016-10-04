@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HangmanBirdModelStoreContainer" CdmEntityContainer="HangmanBirdEntities">
+    <EntitySetMapping Name="Deletreo_Palabras">
+      <EntityTypeMapping TypeName="HangmanBirdModel.Deletreo_Palabras">
+        <MappingFragment StoreEntitySet="Deletreo_Palabras">
+          <ScalarProperty Name="Codigo_Palabra" ColumnName="Codigo_Palabra" />
+          <ScalarProperty Name="Letra" ColumnName="Letra" />
+          <ScalarProperty Name="Posicion" ColumnName="Posicion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Palabras">
+      <EntityTypeMapping TypeName="HangmanBirdModel.Palabras">
+        <MappingFragment StoreEntitySet="Palabras">
+          <ScalarProperty Name="Codigo_Palabra" ColumnName="Codigo_Palabra" />
+          <ScalarProperty Name="Palabra" ColumnName="Palabra" />
+          <ScalarProperty Name="Cantidad_Letras" ColumnName="Cantidad_Letras" />
+          <ScalarProperty Name="Indice_uso" ColumnName="Indice_uso" />
+          <ScalarProperty Name="Palabra_Raiz" ColumnName="Palabra_Raiz" />
+          <ScalarProperty Name="Palabra_Limpia" ColumnName="Palabra_Limpia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Repeticion_Letras">
+      <EntityTypeMapping TypeName="HangmanBirdModel.Repeticion_Letras">
+        <MappingFragment StoreEntitySet="Repeticion_Letras">
+          <ScalarProperty Name="Codigo_Palabra" ColumnName="Codigo_Palabra" />
+          <ScalarProperty Name="Letra" ColumnName="Letra" />
+          <ScalarProperty Name="Repeticiones" ColumnName="Repeticiones" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_ObtenerLetrasPredilectas" FunctionName="HangmanBirdModel.Store.sp_ObtenerLetrasPredilectas">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HangmanBirdModel.sp_ObtenerLetrasPredilectas_result">
+          <ScalarProperty Name="Letra" ColumnName="Letra" />
+          <ScalarProperty Name="CantidadUsada" ColumnName="CantidadUsada" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>
